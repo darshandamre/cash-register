@@ -19,22 +19,33 @@
       <input
         id="bill-amount"
         type="number"
-        min="0"
+        min="1"
         placeholder="Enter bill amount"
       />
 
-      <label for="cash-given">Cash Given:</label>
-      <input
-        id="cash-given"
-        type="number"
-        min="0"
-        placeholder="Enter cash given"
-      />
+      <p class="error error--bill">Enter bill value greater than zero</p>
 
-      <button id="check-btn" class="btn" type="submit">Check</button>
+      <button id="next-btn" class="btn" type="button">Next</button>
+
+      <div class="after-next">
+        <label for="cash-given">Cash Given:</label>
+        <input
+          id="cash-given"
+          type="number"
+          min="1"
+          placeholder="Enter cash given"
+        />
+
+        <p class="error error--cash">Enter cash given greater than zero</p>
+        <p class="error error--less-cash">
+          Not enough cash. Bill amount exceeds given cash.
+        </p>
+
+        <button id="check-btn" class="btn" type="button">Check</button>
+      </div>
     </div>
 
-    <div class="container">
+    <div class="container container--table">
       <table>
         <caption>
           Return Change

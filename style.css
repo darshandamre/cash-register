@@ -39,6 +39,11 @@ input {
   border-radius: 10px;
 }
 
+.error {
+  color: red;
+  display: none;
+}
+
 .btn {
   font-size: 1.4rem;
   margin-bottom: 1em;
@@ -51,13 +56,18 @@ input {
   cursor: pointer;
 }
 
-.btn:hover,
-.btn:active,
-.btn:focus {
+.btn:hover {
   opacity: 0.7;
 }
 
+.after-next {
+  display: none;
+}
+
 /* table */
+.container--table {
+  display: none;
+}
 table {
   margin: 1em 0;
   width: 100%;
