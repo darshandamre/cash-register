@@ -7,8 +7,8 @@ const billAmount = document.getElementById("bill-amount");
 const cashGiven = document.getElementById("cash-given");
 
 // hidden elements
-const afterNext = document.querySelector(".after-next");
-const tableCont = document.querySelector(".container--table");
+const cashContainer = document.querySelector(".container--cash-given");
+const tableContainer = document.querySelector(".container--table");
 
 // error messages
 const billError = document.querySelector(".error--bill");
@@ -58,7 +58,7 @@ nextBtn.addEventListener("click", () => {
   if (bill > 0) {
     hide(nextBtn);
     hide(billError);
-    show(afterNext);
+    show(cashContainer);
   } else {
     return show(billError);
   }
@@ -76,7 +76,7 @@ checkBtn.addEventListener("click", () => {
 
   if (cash > 0) {
     hide(cashError);
-    show(tableCont);
+    show(tableContainer);
   } else {
     return show(cashError);
   }
