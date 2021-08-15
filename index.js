@@ -15,18 +15,42 @@ const billError = document.querySelector(".error--bill");
 const cashError = document.querySelector(".error--cash");
 const lessCashError = document.querySelector(".error--less-cash");
 
-// var bill = parseInt(billAmount.value);
-// var cash = parseInt(cashGiven.value);
+const show = (element) => {
+  return (element.style.display = "block");
+};
+const hide = (element) => {
+  return (element.style.display = "none");
+};
 
+const calculateChange = (changeToBeReturned) => {
+  let notes = [
+    [2000, 0],
+    [500, 0],
+    [100, 0],
+    [20, 0],
+    [10, 0],
+    [5, 0],
+    [1, 0],
+  ];
+
+  notes.forEach((note) => {
+    while (changeToBeReturned != 0 && changeToBeReturned >= note[0]) {
+      changeToBeReturned -= note[0];
+      note[1] += 1;
+    }
+  });
+};
+
+// event listeners
 nextBtn.addEventListener("click", () => {
   let bill = parseInt(billAmount.value);
 
   if (bill > 0) {
-    nextBtn.style.display = "none";
-    billError.style.display = "none";
-    afterNext.style.display = "block";
+    hide(nextBtn);
+    hide(billError);
+    show(afterNext);
   } else {
-    billError.style.display = "block";
+    return show(billError);
   }
 });
 
@@ -35,21 +59,23 @@ checkBtn.addEventListener("click", () => {
   let cash = parseInt(cashGiven.value);
 
   if (bill > 0) {
-    billError.style.display = "none";
+    hide(billError);
   } else {
-    return (billError.style.display = "block"); //show error
+    return show(billError);
   }
 
   if (cash > 0) {
-    cashError.style.display = "none";
-    tableCont.style.display = "block";
+    hide(cashError);
+    show(tableCont);
   } else {
-    return (cashError.style.display = "block"); //show error
+    return show(cashError);
   }
 
-  if (cash > bill) {
-    lessCashError.style.display = "none";
+  if (cash >= bill) {
+    hide(lessCashError);
   } else {
-    return (lessCashError.style.display = "block"); //show error
+    return show(lessCashError);
   }
+
+  calculateChange(cash - bill);
 });
