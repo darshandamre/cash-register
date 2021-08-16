@@ -47,6 +47,8 @@ const displayChange = (notes) => {
   notes.forEach((note) => {
     if (note[1] > 0) {
       document.getElementById(note[0]).innerHTML = note[1];
+    } else {
+      document.getElementById(note[0]).innerHTML = "";
     }
   });
 };
