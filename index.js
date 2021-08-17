@@ -78,7 +78,6 @@ checkBtn.addEventListener("click", () => {
 
   if (cash > 0) {
     hide(cashError);
-    show(tableContainer);
   } else {
     return show(cashError);
   }
@@ -89,5 +88,6 @@ checkBtn.addEventListener("click", () => {
     return show(lessCashError);
   }
 
+  show(tableContainer);
   calculateChange(cash - bill);
 });
