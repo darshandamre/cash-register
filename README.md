@@ -46,7 +46,7 @@ Understood how to create a table in HTML.
 </table>
 ```
 
-These functions given below are the most used funtions. They can be used to show output, to show or hide error messages. At first I was not using these functions to set display property and after writing the same code for couple different, I thought I should make this into a funtion. And it has been very helpful.
+These helper functions make displaying and hiding elements less repetitive.
 
 ```js
 const show = (element) => {
