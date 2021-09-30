@@ -73,18 +73,21 @@ checkBtn.addEventListener("click", () => {
   if (bill > 0) {
     hide(billError);
   } else {
+    hide(tableContainer);
     return show(billError);
   }
 
   if (cash > 0) {
     hide(cashError);
   } else {
+    hide(tableContainer);
     return show(cashError);
   }
 
   if (cash >= bill) {
     hide(lessCashError);
   } else {
+    hide(tableContainer);
     return show(lessCashError);
   }
 
